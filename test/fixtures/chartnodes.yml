@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  xaxis: MyString
+  yaxis: 1.5
+  chart_id: 1
+
+two:
+  xaxis: MyString
+  yaxis: 1.5
+  chart_id: 1

@@ -1,4 +1,11 @@
 Ku6statistics::Application.routes.draw do
+  resources :charts do
+    member do
+      get 'addnodes'
+      put 'addnodes'
+    end
+  end
+
   get "demo/index"
 
   # The priority is based upon order of creation:

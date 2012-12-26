@@ -39,3 +39,4 @@ gem 'lazy_high_charts'
 
 # To use debugger
 # gem 'debugger'
+gem 'pry'

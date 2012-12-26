@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @chart.name %>
+</p>
+
+<p>
+  <b>ChartType:</b>
+  <%= @chart.charttype %>
+</p>
+
+<p>
+  <b>Chart Nodes:</b>
+  <table>
+    <tr>
+      <th>xAxis</th>
+      <th>yAxis</th>
+    </tr>
+    <% @chart.chartnodes.each do |node| %>
+      <tr>
+        <td><%= node.xaxis %></td>
+        <td><%= node.yaxis %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+
+<%= high_chart("h1", @h1) %>
+
+<%= link_to 'Edit', edit_chart_path(@chart) %> |
+<%= link_to 'Add nodes', addnodes_chart_path(@chart) %> |
+<%= link_to 'Back', charts_path %>

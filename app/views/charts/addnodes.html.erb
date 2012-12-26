@@ -1,0 +1,19 @@
+<%= form_for @chart, :url => { :action => "addnodes" } do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.label @chart.name %>
+  </div>
+  <div class="field">
+    <%= f.label :charttype %><br />
+    <%= f.label @chart.charttype %>
+  </div>
+  <div class="field">
+    <%= label_tag :chartnodes %>
+    <div class="controls">
+      <%= text_area_tag :chartnodes, nil, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
