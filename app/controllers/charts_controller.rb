@@ -106,6 +106,7 @@ class ChartsController < ApplicationController
   # DELETE /charts/1.json
   def destroy
     @chart = Chart.find(params[:id])
+    @chart.chartnodes.destroy_all
     @chart.destroy
 
     respond_to do |format|
