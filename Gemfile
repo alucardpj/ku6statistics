@@ -27,6 +27,7 @@ gem 'lazy_high_charts'
 
 gem "twitter-bootstrap-rails", :github => 'seyhunak/twitter-bootstrap-rails'
 
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
