@@ -32,7 +32,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @charts %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_chart_path,
             :class => 'btn btn-primary' %>

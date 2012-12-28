@@ -14,13 +14,15 @@
       <th>xAxis</th>
       <th>yAxis</th>
     </tr>
-    <% @chart.chartnodes.each do |node| %>
+    <% @chartnodes.each do |node| %>
       <tr>
         <td><%= node.xaxis %></td>
         <td><%= node.yaxis %></td>
       </tr>
     <% end %>
   </table>
+
+  <%= paginate @chartnodes %>
 </p>
 
 <%= high_chart("h1", @h1) %>

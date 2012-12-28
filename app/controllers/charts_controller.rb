@@ -2,7 +2,7 @@ class ChartsController < ApplicationController
   # GET /charts
   # GET /charts.json
   def index
-    @charts = Chart.all
+    @charts = Chart.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,7 @@ class ChartsController < ApplicationController
   # GET /charts/1.json
   def show
     @chart = Chart.find(params[:id])
-
+    @chartnodes = @chart.chartnodes.page params[:page]
     data = @chart.chartnodes.map {|node| [node.xaxis, node.yaxis]}.transpose
     if @chart.charttype == 'column'
       @h1 = LazyHighCharts::HighChart.new('graph') do |f|
