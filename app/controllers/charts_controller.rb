@@ -20,14 +20,18 @@ class ChartsController < ApplicationController
       @h1 = LazyHighCharts::HighChart.new('graph') do |f|
         f.title({ :text=> @chart.name})
         f.options[:xAxis][:categories] = data[0]
-        #f.labels(:items=>[:html=>"refer", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
-        f.series(:type=> 'column',:name=> 'Refer',:data=> data[1])
+        f.series(:type=> 'column',:name=> @chart.name,:data=> data[1])
       end
     elsif @chart.charttype == 'spline'
       @h1 = LazyHighCharts::HighChart.new('graph') do |f|
         f.title({ :text=> @chart.name})
         f.options[:xAxis][:categories] = data[0]
-        f.series(:type=> 'spline',:name=> 'Refer',:data=> data[1])
+        f.series(:type=> 'spline',:name=> @chart.name,:data=> data[1])
+        f.plot_options( :spline => {
+          :dataLabels => {
+            :enabled => true
+          }})
+        f.tooltip( :crosshairs => true, :shared => true)
       end
     elsif @chart.charttype == 'pie'
       @h1 = LazyHighCharts::HighChart.new('pie') do |f|
