@@ -1,3 +1,13 @@
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#toggle").click(function(){
+        $("#nodestable").toggle();
+      });
+    });
+  </script>
+<% end %>
+
 <%- model_class = Chart -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -8,9 +18,13 @@
   <dd><%= @chart.name %></dd>
 </dl>
 
+<%= high_chart("h1", @h1) %>
+
+<button id="toggle">Toggle Table</button>
+
 <p>
   <b>Chart Nodes:</b>
-  <table class="table table-bordered">
+  <table id="nodestable" class="table table-bordered" style="display:none">
     <tr>
       <th>xAxis</th>
       <th>yAxis</th>
@@ -23,8 +37,6 @@
     <% end %>
   </table>
 </p>
-
-<%= high_chart("h1", @h1) %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
